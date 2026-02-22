@@ -20,10 +20,10 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 /* ===== TYPING ANIMATION ===== */
 const phrases = [
-  'Web Developer',
-  'Creative Thinker',
-  'Problem Solver',
-  'Open Source Enthusiast',
+  'Credit Risk Analyst',
+  'Financial Economist',
+  'Machine Learning Enthusiast',
+  'Quantitative Finance Professional',
 ];
 let phraseIndex = 0;
 let charIndex = 0;
