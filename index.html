@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mats Hagen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">MH</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Mats Hagen</h1>
+      <p class="hero-subtitle">
+        <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="avatar-placeholder">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="45" r="24" fill="currentColor" opacity="0.4"/>
+              <ellipse cx="60" cy="100" rx="38" ry="22" fill="currentColor" opacity="0.4"/>
+            </svg>
+            <p class="avatar-hint">Add your photo</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>Nice to meet you!</h3>
+          <p>
+            I'm <strong>Mats Hagen</strong> — a passionate creator based in Norway.
+            I love building things for the web and solving real-world problems through technology.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring the outdoors, diving into a good book,
+            or experimenting with new ideas. I believe great work comes from curiosity and persistence.
+          </p>
+          <p class="about-hint">✏️ <em>Edit this section in <code>index.html</code> to tell your own story.</em></p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num" data-target="3">0</span><span class="stat-num">+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="20">0</span><span class="stat-num">+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="10">0</span><span class="stat-num">+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technologies and tools I work with</p>
+      <div class="skills-grid">
+        <div class="skill-card" data-delay="0">
+          <div class="skill-icon">🌐</div>
+          <h4>Web Development</h4>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-card" data-delay="100">
+          <div class="skill-icon">⚛️</div>
+          <h4>Frameworks</h4>
+          <p>React, Node.js</p>
+        </div>
+        <div class="skill-card" data-delay="200">
+          <div class="skill-icon">🎨</div>
+          <h4>Design</h4>
+          <p>UI/UX, Figma</p>
+        </div>
+        <div class="skill-card" data-delay="300">
+          <div class="skill-icon">🗄️</div>
+          <h4>Databases</h4>
+          <p>SQL, MongoDB</p>
+        </div>
+        <div class="skill-card" data-delay="400">
+          <div class="skill-icon">☁️</div>
+          <h4>Cloud & DevOps</h4>
+          <p>Git, Docker, CI/CD</p>
+        </div>
+        <div class="skill-card" data-delay="500">
+          <div class="skill-icon">📱</div>
+          <h4>Mobile</h4>
+          <p>Responsive Design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Some things I've built</p>
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+            <span>🚀</span>
+          </div>
+          <div class="project-body">
+            <h3>Project One</h3>
+            <p>A short description of what this project does and the problem it solves.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm">Live Demo</a>
+              <a href="#" class="btn btn-sm btn-ghost">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+            <span>🛒</span>
+          </div>
+          <div class="project-body">
+            <h3>Project Two</h3>
+            <p>A short description of what this project does and the problem it solves.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm">Live Demo</a>
+              <a href="#" class="btn btn-sm btn-ghost">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+            <span>📊</span>
+          </div>
+          <div class="project-body">
+            <h3>Project Three</h3>
+            <p>A short description of what this project does and the problem it solves.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Data Viz</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm">Live Demo</a>
+              <a href="#" class="btn btn-sm btn-ghost">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:mats@example.com">mats@example.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🐙</span>
+            <div>
+              <strong>GitHub</strong>
+              <p><a href="https://github.com/the-hagen" target="_blank">github.com/the-hagen</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <p><a href="https://linkedin.com/in/the-hagen" target="_blank">linkedin.com/in/the-hagen</a></p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required />
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Mats Hagen. Built with ❤️</p>
+      <div class="footer-links">
+        <a href="https://github.com/the-hagen" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/the-hagen" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
