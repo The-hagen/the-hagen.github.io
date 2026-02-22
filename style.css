@@ -334,6 +334,14 @@ a:hover { text-decoration: underline; }
 }
 .avatar-placeholder svg { width: 80px; height: 80px; }
 .avatar-hint { font-size: 0.75rem; color: var(--text-muted); }
+.avatar-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  box-shadow: var(--shadow);
+}
 .about-text h3 {
   font-size: 1.5rem;
   font-weight: 700;
