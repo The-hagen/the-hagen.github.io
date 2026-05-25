@@ -29,12 +29,13 @@ let activeModels = new Set();
 // --------------- Period filter ---------------
 function filterByPeriod(data, period) {
   if (period === 'Full' || !data.length) return data;
-  const now = new Date();
+  // Use the last data point as reference so slicers work even on historical/example data
+  const last = new Date(data[data.length - 1][CONFIG.DATE_COL]);
   let cutoff;
-  if      (period === '1M')  cutoff = new Date(now.getFullYear(), now.getMonth() - 1,  now.getDate());
-  else if (period === '3M')  cutoff = new Date(now.getFullYear(), now.getMonth() - 3,  now.getDate());
-  else if (period === '6M')  cutoff = new Date(now.getFullYear(), now.getMonth() - 6,  now.getDate());
-  else if (period === 'YTD') cutoff = new Date(now.getFullYear(), 0, 1);
+  if      (period === '1M')  cutoff = new Date(last.getFullYear(), last.getMonth() - 1,  last.getDate());
+  else if (period === '3M')  cutoff = new Date(last.getFullYear(), last.getMonth() - 3,  last.getDate());
+  else if (period === '6M')  cutoff = new Date(last.getFullYear(), last.getMonth() - 6,  last.getDate());
+  else if (period === 'YTD') cutoff = new Date(last.getFullYear(), 0, 1);
   return data.filter(row => new Date(row[CONFIG.DATE_COL]) >= cutoff);
 }
 
