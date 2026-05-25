@@ -127,14 +127,13 @@
 
         <div id="chartLoading" class="chart-loading">Loading performance data…</div>
         <div id="chartError" class="chart-error">
-          <p>⚠️ Could not load data. Make sure your Google Sheet is published and
-             <code>SHEET_URL</code> is set in <code>neural-network.js</code>.</p>
+          <p>⚠️ Could not load <code>stock-data.json</code>. Make sure the file exists in the repository root.</p>
         </div>
         <canvas id="performanceChart" style="display:none"></canvas>
       </div>
 
       <p class="chart-note" id="chartNote">
-        Data updates automatically when new results are pushed to the Google Sheet from Colab.
+        Data updates automatically when new results are committed to the repository from Colab.
       </p>
     </div>
   </section>
