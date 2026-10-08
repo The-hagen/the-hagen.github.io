@@ -1,0 +1,71 @@
+name: Deploy
+
+# main -> evals -> GitHub Pages. The monthly stock_project run pushes new data
+# straight to main; this is what puts it live, and only if it passes.
+#
+# One-time setting: Settings -> Pages -> Build and deployment -> Source:
+# "GitHub Actions". Until then Pages keeps deploying the branch directly and
+# this workflow's deploy step fails.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  evals:
+    uses: ./.github/workflows/ci.yml
+
+  build:
+    needs: evals
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Publish only what the site serves; tests, skills and tooling stay out.
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r *.html photo.jpg assets data _site/
+          cp predictions-latest.json predictions-latest.csv _site/ 2>/dev/null || true
+          touch _site/.nojekyll
+          find _site -type f | sort
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  # After a deploy, load the live site once to confirm it serves the new data.
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Live site serves the same forecast month as main
+        run: |
+          want="$(python3 -c "import json;print(json.load(open('predictions-latest.json'))['forecast_month'])")"
+          for i in 1 2 3 4 5; do
+            got="$(curl -fsS "https://the-hagen.github.io/predictions-latest.json?nocache=$GITHUB_RUN_ID" \
+              | python3 -c "import json,sys;print(json.load(sys.stdin)['forecast_month'])" || true)"
+            [ "$got" = "$want" ] && { echo "live: $got"; exit 0; }
+            echo "attempt $i: live=$got want=$want"; sleep 20
+          done
+          echo "::error::the live site does not serve $want after deploy"; exit 1

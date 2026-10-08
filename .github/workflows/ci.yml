@@ -1,0 +1,168 @@
+name: Evals
+
+# Runs on every PR, and deploy.yml calls it on every push to main, so nothing
+# reaches GitHub Pages without passing. Which jobs run depends on what changed:
+#
+#   data-only push (the monthly stock_project bot)  -> data contract + browser smoke
+#   anything else                                    -> the full suite
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Run the full suite even if only data changed"
+        type: boolean
+        default: true
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: evals-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # Decide the scope. A push from the stock pipeline only touches the JSON/CSV
+  # files; it doesn't need Lighthouse or the design judge, but it must still
+  # pass the data contract and render in a browser.
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      data_only: ${{ steps.scope.outputs.data_only }}
+      matrix: ${{ steps.scope.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: scope
+        env:
+          EVENT: ${{ github.event_name }}
+          FORCE_FULL: ${{ inputs.full }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$EVENT" = "pull_request" ]; then
+            git fetch --depth=1 origin "$BASE_SHA"
+            changed="$(git diff --name-only "$BASE_SHA" HEAD)"
+          else
+            changed="$(git diff --name-only HEAD~1 HEAD 2>/dev/null || echo '*')"
+          fi
+          echo "Changed files:"; echo "$changed"
+          non_data="$(echo "$changed" | grep -v -E '^(predictions-latest\.(json|csv)|data/.*\.json)$' || true)"
+          if [ -z "$non_data" ] && [ "$FORCE_FULL" != "true" ]; then
+            echo "data_only=true" >> "$GITHUB_OUTPUT"
+            echo 'matrix={"viewport":["desktop"],"scheme":["light"]}' >> "$GITHUB_OUTPUT"
+          else
+            echo "data_only=false" >> "$GITHUB_OUTPUT"
+            echo 'matrix={"viewport":["desktop","mobile"],"scheme":["light","dark"]}' >> "$GITHUB_OUTPUT"
+          fi
+
+  static:
+    needs: plan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: pip install -r requirements-dev.txt
+      - run: npm ci
+      - name: Data contract (shape, consistency, public boundary)
+        run: python -m pytest -q tests/test_data_contract.py
+      - name: Template tells and button rules (docs/DESIGN.md)
+        if: needs.plan.outputs.data_only != 'true'
+        run: python -m pytest -q tests/test_ai_tells.py
+      - name: HTML validation
+        if: needs.plan.outputs.data_only != 'true'
+        run: npx html-validate "*.html"
+
+  browser:
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    name: browser (${{ matrix.viewport }}, ${{ matrix.scheme }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: pip install -r requirements-dev.txt
+      - run: npm ci
+      - run: python -m playwright install --with-deps chromium
+      # with_server.py comes from Anthropic's webapp-testing skill
+      # (.claude/skills/webapp-testing): it starts the server, waits for the
+      # port, runs the tests and stops the server.
+      - name: Playwright + axe evals
+        env:
+          EVAL_VIEWPORT: ${{ matrix.viewport }}
+          EVAL_SCHEME: ${{ matrix.scheme }}
+        run: |
+          python .claude/skills/webapp-testing/scripts/with_server.py \
+            --server "python -m http.server 8000" --port 8000 \
+            -- python -m pytest -q -m browser
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ matrix.viewport }}-${{ matrix.scheme }}
+          path: eval-artifacts/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  lighthouse:
+    needs: plan
+    if: needs.plan.outputs.data_only != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lighthouse budgets (see lighthouserc.json)
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+
+  # Model-graded review against the frontend-design and design-critique
+  # skills. Advisory: it writes a critique to the job summary and never
+  # blocks. Skipped when the ANTHROPIC_API_KEY secret is not set.
+  design-judge:
+    needs: [plan, browser]
+    if: github.event_name == 'pull_request' && needs.plan.outputs.data_only != 'true'
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        if: env.ANTHROPIC_API_KEY != ''
+      - uses: actions/download-artifact@v4
+        if: env.ANTHROPIC_API_KEY != ''
+        with:
+          pattern: screenshots-*-light
+          path: eval-artifacts
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        if: env.ANTHROPIC_API_KEY != ''
+        with:
+          python-version: "3.12"
+      - if: env.ANTHROPIC_API_KEY != ''
+        run: pip install -r requirements-dev.txt
+      - name: Design review
+        if: env.ANTHROPIC_API_KEY != ''
+        run: python scripts/design_judge.py
+      - name: Note when skipped
+        if: env.ANTHROPIC_API_KEY == ''
+        run: echo "ANTHROPIC_API_KEY is not set; the advisory design review was skipped." >> "$GITHUB_STEP_SUMMARY"

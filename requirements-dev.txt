@@ -1,0 +1,4 @@
+# Evals only; the site has no build step.
+pytest==8.4.2
+playwright==1.56.0
+anthropic==1.12.1

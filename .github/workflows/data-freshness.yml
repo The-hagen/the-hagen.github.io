@@ -1,0 +1,39 @@
+name: Data freshness
+
+# The stock pipeline publishes on the 1st (retry on the 3rd). If by the 5th the
+# site still shows last month's forecast, something upstream failed quietly:
+# open one issue rather than let the page go stale for a month.
+on:
+  schedule:
+    - cron: "17 7 5 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare published month with the calendar
+        id: fresh
+        run: |
+          month="$(TZ=Europe/Oslo date +%Y-%m)"
+          published="$(python3 -c "import json;print(json.load(open('predictions-latest.json'))['forecast_month'])" 2>/dev/null || echo none)"
+          echo "month=$month" >> "$GITHUB_OUTPUT"
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+          echo "Calendar month $month, site shows $published"
+      - name: Open an issue if stale
+        if: steps.fresh.outputs.published != steps.fresh.outputs.month
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MONTH: ${{ steps.fresh.outputs.month }}
+          PUBLISHED: ${{ steps.fresh.outputs.published }}
+        run: |
+          title="Stock ranking for $MONTH not published"
+          if gh issue list --state open --search "$title in:title" --json number --jq '.[0].number' | grep -q .; then
+            echo "issue already open"; exit 0
+          fi
+          gh issue create --title "$title" --body "The site still shows the $PUBLISHED forecast on $(date -u +%F). Check the Monthly run workflow in stock_project; the site updates itself once a run publishes."
