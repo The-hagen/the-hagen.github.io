@@ -108,6 +108,9 @@ def test_history_switches_month(page, path):
     page.wait_for_selector("#month-picker button")
     buttons = page.locator("#month-picker button")
     history = json.loads((ROOT / "data" / "history.json").read_text())["months"]
+    latest_month = json.loads((ROOT / "predictions-latest.json").read_text())["forecast_month"]
+    if latest_month > history[0]["month"]:
+        history.insert(0, {"month": latest_month, "file": "predictions-latest.json"})
     assert buttons.count() == len(history)
     if len(history) < 2:
         pytest.skip("only one month published")
