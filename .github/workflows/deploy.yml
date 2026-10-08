@@ -31,7 +31,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          cp -r *.html photo.jpg assets data _site/
+          cp -r *.html photo.jpg assets data _site/  # index.html, stock-model.html, redirect
           cp predictions-latest.json predictions-latest.csv _site/ 2>/dev/null || true
           touch _site/.nojekyll
           find _site -type f | sort

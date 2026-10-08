@@ -78,3 +78,11 @@ one rule and space.
   tell; tickers now use Archivo at a narrower width.
 - The first plan used numbered markers on every section. Only the run steps are
   a real sequence, so only they are numbered.
+
+## Two-page variant
+
+Same tokens and rules, split in two. `index.html` keeps the hero strip and
+shows only this month's top 10, with two large buttons into
+`stock-model.html`, which holds the full write-up, the bottom 10, the full
+list and the history. The header carries a solid "Contact" button on both
+pages so the main action is visible without scrolling.

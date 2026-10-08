@@ -1,9 +1,21 @@
 {
   "comment": "Pages the evals visit. 'stock' marks pages that render the live ranking.",
   "pages": [
-    {"path": "/", "stock": true, "strip": true, "history": true, "all_stocks": true}
+    {
+      "path": "/",
+      "stock": true,
+      "strip": true,
+      "top_only": true
+    },
+    {
+      "path": "/stock-model.html",
+      "stock": true,
+      "strip": true,
+      "history": true,
+      "all_stocks": true
+    }
   ],
   "redirects": {
-    "/neural-network.html": "/index.html#stock-model"
+    "/neural-network.html": "/stock-model.html"
   }
 }

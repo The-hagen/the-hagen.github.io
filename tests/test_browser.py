@@ -48,12 +48,15 @@ def test_live_ranking_renders(page, path):
     n = latest.get("top_n", 10)
 
     top = page.locator("#top-table tbody tr")
-    bottom = page.locator("#bottom-table tbody tr")
-    assert top.count() == n and bottom.count() == n
-
+    assert top.count() == n
     best = min(latest["rankings"], key=lambda r: r["rank"])
-    worst = max(latest["rankings"], key=lambda r: r["rank"])
     assert best["ticker"].removesuffix(".OL") in top.first.inner_text()
+
+    if path in by_flag("top_only"):
+        return
+    bottom = page.locator("#bottom-table tbody tr")
+    assert bottom.count() == n
+    worst = max(latest["rankings"], key=lambda r: r["rank"])
     assert worst["ticker"].removesuffix(".OL") in bottom.first.inner_text()
     # No placeholder dashes left once data is in.
     assert "–" not in page.locator("dl.facts").inner_text()

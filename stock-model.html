@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oslo Børs model, Mats Hagen</title>
+  <meta name="description" content="How Mats Hagen's Oslo Børs model works, this month's ranking of every stock, and every earlier month." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <script src="assets/site.js" defer></script>
+  <script src="assets/stocks.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="home" href="index.html">Mats Hagen</a>
+      <nav class="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stock-model.html" aria-current="page">Stock model</a></li>
+          <li><a class="button small nav-cta" href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-compact" aria-labelledby="stock-model-title">
+      <div class="wrap">
+        <p class="crumb"><a href="index.html">Home</a> / Stock model</p>
+        <h1 id="stock-model-title">The Oslo Børs model</h1>
+        <p class="lede">Once a month it forecasts next month's return for every stock on Oslo Børs worth more than NOK 1 billion, ranks them, and flags the ten highest as that month's picks.</p>
+        <div class="actions">
+          <a class="button" href="#this-month"><span>See <span data-fill="month">this month</span>'s ranking</span></a>
+          <a class="button secondary" href="#how-it-works">How a run works</a>
+          <a class="button secondary" href="#history">Earlier months</a>
+        </div>
+        <div class="strip">
+          <div class="strip-head">
+            <p class="strip-title">Forecast one-month return, <span data-fill="month">latest month</span></p>
+            <p class="muted">Each dot is one stock. <span data-fill="count">All</span> stocks, published <span data-fill="published">monthly</span>.</p>
+          </div>
+          <figure class="strip-figure" id="forecast-strip">
+            <figcaption class="visually-hidden">Distribution of this month's forecasts. The tables below list the same numbers.</figcaption>
+          </figure>
+          <p class="status" data-stock-status>Loading the latest ranking&hellip;</p>
+          <ul class="strip-legend">
+            <li><span class="swatch down" aria-hidden="true"></span>Bottom 10</li>
+            <li><span class="swatch mid" aria-hidden="true"></span>Everything in between</li>
+            <li><span class="swatch up" aria-hidden="true"></span>Top 10, this month's picks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- The stock model -->
+    <section class="block" id="stock-model" aria-labelledby="about-model-title">
+      <div class="wrap">
+        <h2 id="about-model-title">What it is</h2>
+        <div class="prose">
+          <p>It runs without me. GitHub Actions starts it at 04:00 Oslo time on the 1st of each month, and tries again on the 3rd if the first attempt didn't produce a forecast. When it finishes it commits the ranking to this website, so the numbers on this page are whatever the latest run published, not something I typed in.</p>
+          <p>The model is a random forest (200 trees) trained on the last eight years of monthly data and about 185 inputs per stock. I compared it against a neural network and LightGBM while building it; the random forest is what the monthly run uses.</p>
+        </div>
+
+        <h3 id="this-month">This month</h3>
+        <dl class="facts">
+          <div><dt>Forecast for</dt><dd data-fill="month">&ndash;</dd></div>
+          <div><dt>Stocks ranked</dt><dd class="num" data-fill="count">&ndash;</dd></div>
+          <div><dt>Market regime</dt><dd data-fill="regime">&ndash;</dd></div>
+          <div><dt>Published</dt><dd data-fill="published">&ndash;</dd></div>
+        </dl>
+        <p class="muted">Sectors in the top 10: <span data-fill="top-sectors">&ndash;</span>. The regime is the sign of the market's six-month momentum.</p>
+        
+
+        <div class="pair">
+          <div id="top-table"></div>
+          <div id="bottom-table"></div>
+        </div>
+
+        <details class="all-stocks">
+          <summary class="button secondary">
+            <span class="when-closed">Show all <span data-fill="count">ranked</span> stocks</span>
+            <span class="when-open">Hide the full list</span>
+          </summary>
+          <div class="controls">
+            <label class="field">Find a ticker
+              <input id="stock-search" type="search" placeholder="e.g. EQNR" autocomplete="off" />
+            </label>
+            <label class="field">Sector
+              <select id="stock-sector"><option value="">All sectors</option></select>
+            </label>
+          </div>
+          <p class="result-count" id="stock-count" aria-live="polite"></p>
+          <div id="all-table"></div>
+        </details>
+
+        <div id="history">
+          <h3>Earlier months</h3>
+          <div class="prose">
+            <p>Every run is kept. Pick a month to see what the model ranked at the top and bottom then, and which stocks came in or dropped out of the top 10 compared with the month before.</p>
+          </div>
+          <div class="month-picker" id="month-picker" role="group" aria-label="Choose a month"></div>
+          <div class="changes" id="history-changes" aria-live="polite"></div>
+          <div id="history-tables"></div>
+        </div>
+
+        <h3 id="how-it-works">How a monthly run works</h3>
+        <ol class="steps">
+          <li><div><strong>Fetch</strong>Prices from Yahoo, macro series from FRED and Statistics Norway (oil, gas, rates, currencies, VIX, salmon and timber prices), and short positions from Finanstilsynet. Every fetch is counted, so a run that only got 40 of 200 tickers cannot pass as a healthy one.</div></li>
+          <li><div><strong>Check the data is ready</strong>Prices have to reach the last trading day of the previous month. Anything behind gets one targeted re-fetch. If more than 10% of stocks, or the OSEBX or S&amp;P 500 index, are still behind, the run stops before it fits anything.</div></li>
+          <li><div><strong>Build features</strong>About 185 per stock per month: momentum and reversal, volatility, liquidity, size and value characteristics from the Jensen-Kelly-Pedersen factor set, short interest, earnings timing, each stock's exposure to oil, rates and currencies, and a geopolitical-risk index. They are stored before fitting, so a failed fit doesn't lose them.</div></li>
+          <li><div><strong>Fit</strong>The random forest is trained on a rolling eight-year window, using only data that was available at the time. The target is next month's return including dividends.</div></li>
+          <li><div><strong>Forecast and rank</strong>Every stock in the universe gets a forecast, including stocks with gaps in their history (they are filled from the training window's medians rather than dropped). The ten highest are the picks.</div></li>
+          <li><div><strong>Report and publish</strong>The ranking is pushed to this site. A private diagnostics report checks data freshness, feature drift and anomalies, and scores how last month's picks did once that month has closed. Then the database is backed up.</div></li>
+        </ol>
+
+        <h3>What it publishes, and what it doesn't</h3>
+        <div class="prose">
+          <p>The public file has eight fields per stock: rank, ticker, name, sector, forecast, signal, whether it is a pick, and last month's rank. Which inputs drive the model is left out on purpose. That rule is enforced in code with a whitelist the publish step checks on every run, because this site's repository is public and its history is permanent.</p>
+          <p>Nothing fails quietly. A run that hits an error still publishes its ranking, but the job turns red and opens a GitHub issue, and the run log says what went wrong.</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="index.html#contact">Ask me about the model</a>
+          <a class="button secondary" href="index.html">Back to home</a>
+        </div>
+        <p class="note">This is research code, not investment advice. The forecasts are out-of-sample, but one exchange over about a decade is a research baseline, and a ranking that looks confident can still be wrong for months at a time.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Mats Hagen, Oslo</p>
+      <p>Stock data updates on the 1st of each month.</p>
+    </div>
+  </footer>
+</body>
+</html>

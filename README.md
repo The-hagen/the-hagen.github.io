@@ -5,7 +5,7 @@ served by GitHub Pages.
 
 ## Where the stock numbers come from
 
-The [stock model](index.html#stock-model) section reads files that the private
+The [stock model page](stock-model.html) reads files that the private
 `stock_project` pipeline pushes here on the 1st of each month:
 
 | File | What it is |
