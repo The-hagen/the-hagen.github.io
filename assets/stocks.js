@@ -201,9 +201,11 @@
         el("br"),
         document.createTextNode(`Rank ${p.d.rank} of ${rows.length}, forecast ${pct(p.d.pred_return_pct)}`),
       );
-      tip.style.left = p.cx * scale + "px";
       tip.style.top = (mid + p.off) * scale + "px";
       tip.hidden = false;
+      // Keep the tooltip inside the chart for dots near either edge.
+      const half = tip.offsetWidth / 2, maxX = figure.clientWidth - half;
+      tip.style.left = Math.min(Math.max(p.cx * scale, half), maxX) + "px";
     };
     svg.addEventListener("pointerover", show);
     svg.addEventListener("pointerleave", () => { tip.hidden = true; });

@@ -81,6 +81,9 @@ def test_strip_hover_shows_tooltip(page, path):
     page.locator("#forecast-strip circle.hit").first.hover(force=True)
     tip = page.locator("#forecast-strip .tooltip")
     assert tip.is_visible() and "Rank 1 of" in tip.inner_text()
+    # Rank 1 sits at the right edge: the tooltip must stay inside the chart.
+    box, fig = tip.bounding_box(), page.locator("#forecast-strip").bounding_box()
+    assert box["x"] >= fig["x"] - 1 and box["x"] + box["width"] <= fig["x"] + fig["width"] + 1
 
 
 @pytest.mark.parametrize("path", by_flag("all_stocks"))
