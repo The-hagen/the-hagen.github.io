@@ -76,10 +76,13 @@ def test_history_index_matches_files():
         assert json.loads(f.read_text())["forecast_month"] == m["month"]
 
 
-def test_latest_is_newest_history_month():
+def test_latest_is_not_older_than_history():
+    """Latest may run a month ahead of the index (a pipeline that only pushes
+    the latest file); the page adds that month itself. Older means a stale
+    latest file overwrote a newer one."""
     latest = ROOT / "predictions-latest.json"
     index_path = ROOT / "data" / "history.json"
     if not (latest.exists() and index_path.exists()):
         pytest.skip("needs both the latest file and the history index")
     newest = json.loads(index_path.read_text())["months"][0]["month"]
-    assert json.loads(latest.read_text())["forecast_month"] == newest
+    assert json.loads(latest.read_text())["forecast_month"] >= newest

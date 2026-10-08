@@ -264,8 +264,13 @@
     const host = $("#history");
     if (!host) return;
     const picker = $("#month-picker"), out = $("#history-tables"), changes = $("#history-changes");
-    const months = history?.months?.length ? history.months
+    const months = history?.months?.length ? [...history.months]
       : [{ month: latest.forecast_month, file: null }];
+    // A pipeline that only publishes predictions-latest.json can be a month
+    // ahead of the index; show that month too rather than hide it.
+    if (months[0].month < latest.forecast_month) {
+      months.unshift({ month: latest.forecast_month, file: "predictions-latest.json" });
+    }
     const cache = new Map([[latest.forecast_month, latest]]);
     const load = async (m) => {
       if (!cache.has(m.month)) cache.set(m.month, await getJSON(m.file));
