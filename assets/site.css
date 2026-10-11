@@ -329,7 +329,6 @@ tbody tr:hover { background: var(--row-hover); }
 }
 .pos::before { background: var(--up); }
 .neg::before { background: var(--down); }
-.move { color: var(--ink-muted); font-size: var(--step--1); white-space: nowrap; }
 .table-scroll { overflow-x: auto; }
 
 .controls {

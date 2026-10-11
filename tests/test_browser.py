@@ -126,6 +126,32 @@ def test_history_switches_month(page, path):
     # Newest month compares with the month before it.
     buttons.nth(0).click()
     page.wait_for_selector("#history-changes >> text=New in the top")
+    page.wait_for_selector("#history-changes >> text=Kept from")
+
+
+@pytest.mark.parametrize("path", by_flag("history"))
+def test_history_kept_line_matches_the_data(page, path):
+    goto(page, path)
+    page.wait_for_selector("#history-changes >> text=Kept from")
+    history = json.loads((ROOT / "data" / "history.json").read_text())["months"]
+    if len(history) < 2:
+        pytest.skip("only one month published")
+    tops = []
+    for m in history[:2]:
+        rows = json.loads((ROOT / m["file"]).read_text())["rankings"]
+        tops.append([r["ticker"].removesuffix(".OL") for r in sorted(rows, key=lambda r: r["rank"])[:10]])
+    kept = [t for t in tops[0] if t in tops[1]]
+    line = page.locator("#history-changes p", has_text="Kept from").inner_text()
+    assert line.split(": ", 1)[1] == (", ".join(kept) or "none")
+
+
+@pytest.mark.parametrize("path", by_flag("stock"))
+def test_last_month_rank_is_not_shown(page, path):
+    goto(page, path)
+    page.wait_for_selector("html[data-stocks-ready='true']")
+    headers = page.locator("th[scope=col]").all_inner_texts()
+    assert "Last month" not in headers
+    assert "(was " not in page.locator("main").inner_text()
 
 
 @pytest.mark.parametrize("path", by_flag("stock"))

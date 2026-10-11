@@ -54,27 +54,12 @@
     return node;
   }
 
-  function moveCell(row) {
-    if (row.prev_rank === null || row.prev_rank === undefined) {
-      return el("span", { class: "move", text: "new this month" });
-    }
-    const d = row.prev_rank - row.rank;
-    if (d === 0) return el("span", { class: "move", text: "unchanged" });
-    const arrow = d > 0 ? "↑" : "↓";
-    return el("span", {
-      class: "move",
-      "aria-label": (d > 0 ? "up " : "down ") + Math.abs(d) + " places, was " + row.prev_rank,
-      text: arrow + " " + Math.abs(d) + " (was " + row.prev_rank + ")",
-    });
-  }
-
   function rankingTable(rows, caption, note) {
     const head = el("thead", {}, el("tr", {},
       el("th", { scope: "col", class: "r", text: "Rank" }),
       el("th", { scope: "col", text: "Ticker" }),
       el("th", { scope: "col", text: "Sector" }),
       el("th", { scope: "col", class: "r", text: "Forecast" }),
-      el("th", { scope: "col", text: "Last month" }),
     ));
     const body = el("tbody");
     for (const r of rows) {
@@ -83,7 +68,6 @@
         el("th", { scope: "row", class: "ticker", text: tickerText(r.ticker) }),
         el("td", { text: r.sector || "Unknown" }),
         el("td", { class: "r num " + (r.pred_return_pct >= 0 ? "pos" : "neg"), text: pct(r.pred_return_pct) }),
-        el("td", {}, moveCell(r)),
       ));
     }
     const cap = el("caption", {}, caption, note ? el("small", { text: note }) : null);
@@ -296,9 +280,11 @@
           const prevTop = new Set(groups(prev).top.map((r) => r.ticker));
           const nowTop = new Set(top.map((r) => r.ticker));
           const entered = [...nowTop].filter((t) => !prevTop.has(t)).map(tickerText);
+          const kept = [...nowTop].filter((t) => prevTop.has(t)).map(tickerText);
           const left = [...prevTop].filter((t) => !nowTop.has(t)).map(tickerText);
           changes.append(
             el("p", {}, el("strong", { text: "New in the top " + n + ": " }), entered.length ? entered.join(", ") : "none"),
+            el("p", {}, el("strong", { text: "Kept from " + monthName(older.month) + ": " }), kept.length ? kept.join(", ") : "none"),
             el("p", {}, el("strong", { text: "Dropped out since " + monthName(older.month) + ": " }), left.length ? left.join(", ") : "none"),
           );
         } else {
