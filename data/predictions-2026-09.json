@@ -1,0 +1,1463 @@
+{
+  "run_id": "20260906_220600",
+  "generated_at": "2026-09-06T22:35:58+00:00",
+  "forecast_month": "2026-09",
+  "universe_size": 145,
+  "top_n": 10,
+  "market_regime": {
+    "mkt_regime_6m": null,
+    "label": "unknown"
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "ticker": "TGS.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 2.5165,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 68
+    },
+    {
+      "rank": 2,
+      "ticker": "CMBTO.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 2.1992,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 5
+    },
+    {
+      "rank": 3,
+      "ticker": "ELMRA.OL",
+      "name": null,
+      "sector": "Utilities",
+      "pred_return_pct": 2.0619,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 81
+    },
+    {
+      "rank": 4,
+      "ticker": "HSHP.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.961,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 54
+    },
+    {
+      "rank": 5,
+      "ticker": "ARCH.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.9547,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 63
+    },
+    {
+      "rank": 6,
+      "ticker": "SMOP.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 1.9318,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 24
+    },
+    {
+      "rank": 7,
+      "ticker": "MGN.OL",
+      "name": null,
+      "sector": "Utilities",
+      "pred_return_pct": 1.9229,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 10
+    },
+    {
+      "rank": 8,
+      "ticker": "NAS.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.9077,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 3
+    },
+    {
+      "rank": 9,
+      "ticker": "ZAP.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 1.8641,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 79
+    },
+    {
+      "rank": 10,
+      "ticker": "OKEA.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.7714,
+      "signal": "BUY",
+      "is_pick": true,
+      "prev_rank": 80
+    },
+    {
+      "rank": 11,
+      "ticker": "ODL.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.7592,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 53
+    },
+    {
+      "rank": 12,
+      "ticker": "PLT.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 1.69,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 123
+    },
+    {
+      "rank": 13,
+      "ticker": "YAR.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": 1.6677,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 120
+    },
+    {
+      "rank": 14,
+      "ticker": "KOA.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 1.6639,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 36
+    },
+    {
+      "rank": 15,
+      "ticker": "STB.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.6533,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 29
+    },
+    {
+      "rank": 16,
+      "ticker": "AKSO.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.6051,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 98
+    },
+    {
+      "rank": 17,
+      "ticker": "SBO.OL",
+      "name": null,
+      "sector": "Real Estate",
+      "pred_return_pct": 1.4991,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 62
+    },
+    {
+      "rank": 18,
+      "ticker": "BRG.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": 1.4918,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 28
+    },
+    {
+      "rank": 19,
+      "ticker": "ELK.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": 1.4741,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 66
+    },
+    {
+      "rank": 20,
+      "ticker": "KIT.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 1.455,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 34
+    },
+    {
+      "rank": 21,
+      "ticker": "VTURA.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.4204,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 32
+    },
+    {
+      "rank": 22,
+      "ticker": "PLSV.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.3829,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 12
+    },
+    {
+      "rank": 23,
+      "ticker": "SKUE.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.3514,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 4
+    },
+    {
+      "rank": 24,
+      "ticker": "AFK.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.3191,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 65
+    },
+    {
+      "rank": 25,
+      "ticker": "ENDUR.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.3072,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 78
+    },
+    {
+      "rank": 26,
+      "ticker": "OTEC.OL",
+      "name": null,
+      "sector": "Communication Services",
+      "pred_return_pct": 1.286,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 15
+    },
+    {
+      "rank": 27,
+      "ticker": "ABG.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.2511,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 2
+    },
+    {
+      "rank": 28,
+      "ticker": "MEDI.OL",
+      "name": null,
+      "sector": "Healthcare",
+      "pred_return_pct": 1.2211,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 84
+    },
+    {
+      "rank": 29,
+      "ticker": "DNB.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.2095,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 61
+    },
+    {
+      "rank": 30,
+      "ticker": "SNI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.2018,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 58
+    },
+    {
+      "rank": 31,
+      "ticker": "SPOG.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.1782,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 43
+    },
+    {
+      "rank": 32,
+      "ticker": "SAGA.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.1752,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 1
+    },
+    {
+      "rank": 33,
+      "ticker": "VEND.OL",
+      "name": null,
+      "sector": "Communication Services",
+      "pred_return_pct": 1.1636,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 92
+    },
+    {
+      "rank": 34,
+      "ticker": "ANDF.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 1.1533,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 109
+    },
+    {
+      "rank": 35,
+      "ticker": "BONHR.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.1522,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 18
+    },
+    {
+      "rank": 36,
+      "ticker": "SCATC.OL",
+      "name": null,
+      "sector": "Utilities",
+      "pred_return_pct": 1.125,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 106
+    },
+    {
+      "rank": 37,
+      "ticker": "SUBC.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.121,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 73
+    },
+    {
+      "rank": 38,
+      "ticker": "INSTA.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.1137,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 8
+    },
+    {
+      "rank": 39,
+      "ticker": "EIOF.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.1108,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 93
+    },
+    {
+      "rank": 40,
+      "ticker": "NSKOG.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": 1.1008,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 125
+    },
+    {
+      "rank": 41,
+      "ticker": "SWON.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 1.0954,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 82
+    },
+    {
+      "rank": 42,
+      "ticker": "NRC.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.069,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 115
+    },
+    {
+      "rank": 43,
+      "ticker": "FRO.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 1.0522,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 17
+    },
+    {
+      "rank": 44,
+      "ticker": "MAS.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 1.047,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 119
+    },
+    {
+      "rank": 45,
+      "ticker": "VEI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.0409,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 21
+    },
+    {
+      "rank": 46,
+      "ticker": "TEL.OL",
+      "name": null,
+      "sector": "Communication Services",
+      "pred_return_pct": 1.0143,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 31
+    },
+    {
+      "rank": 47,
+      "ticker": "NHY.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": 1.0107,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 46
+    },
+    {
+      "rank": 48,
+      "ticker": "BWLPG.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 1.0074,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 52
+    },
+    {
+      "rank": 49,
+      "ticker": "GJF.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 1.0063,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 33
+    },
+    {
+      "rank": 50,
+      "ticker": "PEN.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.9998,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 72
+    },
+    {
+      "rank": 51,
+      "ticker": "LSG.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.9893,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 30
+    },
+    {
+      "rank": 52,
+      "ticker": "ATEA.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 0.9876,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 48
+    },
+    {
+      "rank": 53,
+      "ticker": "PEXIP.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 0.9748,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 97
+    },
+    {
+      "rank": 54,
+      "ticker": "ENH.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.9742,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 47
+    },
+    {
+      "rank": 55,
+      "ticker": "B2I.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.9475,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 19
+    },
+    {
+      "rank": 56,
+      "ticker": "KCC.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.9401,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 56
+    },
+    {
+      "rank": 57,
+      "ticker": "NKR.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.908,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 85
+    },
+    {
+      "rank": 58,
+      "ticker": "MING.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.9008,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 75
+    },
+    {
+      "rank": 59,
+      "ticker": "SOMA.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.8982,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 50
+    },
+    {
+      "rank": 60,
+      "ticker": "MOWI.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.8546,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 90
+    },
+    {
+      "rank": 61,
+      "ticker": "NORAM.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.8515,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 40
+    },
+    {
+      "rank": 62,
+      "ticker": "SPOL.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.8419,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 38
+    },
+    {
+      "rank": 63,
+      "ticker": "ROGS.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.841,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 6
+    },
+    {
+      "rank": 64,
+      "ticker": "ELIMP.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 0.8392,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 44
+    },
+    {
+      "rank": 65,
+      "ticker": "WWI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.8193,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 107
+    },
+    {
+      "rank": 66,
+      "ticker": "WWIB.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.8192,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 39
+    },
+    {
+      "rank": 67,
+      "ticker": "PHO.OL",
+      "name": null,
+      "sector": "Healthcare",
+      "pred_return_pct": 0.8164,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 94
+    },
+    {
+      "rank": 68,
+      "ticker": "SB1NO.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.8106,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 23
+    },
+    {
+      "rank": 69,
+      "ticker": "MORG.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.8057,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 89
+    },
+    {
+      "rank": 70,
+      "ticker": "NORBT.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 0.7879,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 11
+    },
+    {
+      "rank": 71,
+      "ticker": "CLOUD.OL",
+      "name": null,
+      "sector": "Utilities",
+      "pred_return_pct": 0.7873,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 70
+    },
+    {
+      "rank": 72,
+      "ticker": "SEA1.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.7561,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 131
+    },
+    {
+      "rank": 73,
+      "ticker": "OET.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.7455,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 7
+    },
+    {
+      "rank": 74,
+      "ticker": "SOFF.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.7323,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 13
+    },
+    {
+      "rank": 75,
+      "ticker": "KID.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 0.7165,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 27
+    },
+    {
+      "rank": 76,
+      "ticker": "NOD.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": 0.7119,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 74
+    },
+    {
+      "rank": 77,
+      "ticker": "ENVIP.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.7092,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 143
+    },
+    {
+      "rank": 78,
+      "ticker": "LINK.OL",
+      "name": null,
+      "sector": "Communication Services",
+      "pred_return_pct": 0.6781,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 105
+    },
+    {
+      "rank": 79,
+      "ticker": "AUSS.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.6671,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 64
+    },
+    {
+      "rank": 80,
+      "ticker": "SBNOR.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.6609,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 9
+    },
+    {
+      "rank": 81,
+      "ticker": "AKVA.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.6519,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 91
+    },
+    {
+      "rank": 82,
+      "ticker": "TOM.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.6502,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 111
+    },
+    {
+      "rank": 83,
+      "ticker": "OTL.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.6416,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 76
+    },
+    {
+      "rank": 84,
+      "ticker": "AKRBP.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.625,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 77
+    },
+    {
+      "rank": 85,
+      "ticker": "AKBM.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.6124,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 103
+    },
+    {
+      "rank": 86,
+      "ticker": "ORK.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.5923,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 51
+    },
+    {
+      "rank": 87,
+      "ticker": "DNO.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.5638,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 99
+    },
+    {
+      "rank": 88,
+      "ticker": "NORCO.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.5613,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 83
+    },
+    {
+      "rank": 89,
+      "ticker": "EPR.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.5611,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 55
+    },
+    {
+      "rank": 90,
+      "ticker": "ENTRA.OL",
+      "name": null,
+      "sector": "Real Estate",
+      "pred_return_pct": 0.5419,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 60
+    },
+    {
+      "rank": 91,
+      "ticker": "AFG.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.5291,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 42
+    },
+    {
+      "rank": 92,
+      "ticker": "DVD.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.5065,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 16
+    },
+    {
+      "rank": 93,
+      "ticker": "ODFB.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.485,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 124
+    },
+    {
+      "rank": 94,
+      "ticker": "HAUTO.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.4767,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 130
+    },
+    {
+      "rank": 95,
+      "ticker": "PARB.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.4729,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 57
+    },
+    {
+      "rank": 96,
+      "ticker": "PROT.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.4363,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 41
+    },
+    {
+      "rank": 97,
+      "ticker": "VAR.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.4339,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 117
+    },
+    {
+      "rank": 98,
+      "ticker": "BAKKA.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.4266,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 114
+    },
+    {
+      "rank": 99,
+      "ticker": "CADLR.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.3899,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 26
+    },
+    {
+      "rank": 100,
+      "ticker": "MPCC.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.3682,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 71
+    },
+    {
+      "rank": 101,
+      "ticker": "BEWI.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 0.3564,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 116
+    },
+    {
+      "rank": 102,
+      "ticker": "KOG.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.349,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 128
+    },
+    {
+      "rank": 103,
+      "ticker": "KOMPL.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 0.3428,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 104
+    },
+    {
+      "rank": 104,
+      "ticker": "MORLD.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.3394,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 132
+    },
+    {
+      "rank": 105,
+      "ticker": "AKAST.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.3254,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 112
+    },
+    {
+      "rank": 106,
+      "ticker": "SATS.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": 0.2985,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 96
+    },
+    {
+      "rank": 107,
+      "ticker": "SNTIA.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.2861,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 14
+    },
+    {
+      "rank": 108,
+      "ticker": "REACH.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.2846,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 142
+    },
+    {
+      "rank": 109,
+      "ticker": "EQNR.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.2672,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 87
+    },
+    {
+      "rank": 110,
+      "ticker": "HAFNI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.2597,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 69
+    },
+    {
+      "rank": 111,
+      "ticker": "BNOR.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.2503,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 95
+    },
+    {
+      "rank": 112,
+      "ticker": "MULTI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.2159,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 22
+    },
+    {
+      "rank": 113,
+      "ticker": "SALM.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": 0.1993,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 86
+    },
+    {
+      "rank": 114,
+      "ticker": "CAMBI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.1881,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 45
+    },
+    {
+      "rank": 115,
+      "ticker": "DOFG.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.161,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 108
+    },
+    {
+      "rank": 116,
+      "ticker": "AKER.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.156,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 59
+    },
+    {
+      "rank": 117,
+      "ticker": "NTI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.1418,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 121
+    },
+    {
+      "rank": 118,
+      "ticker": "NONG.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.1316,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 88
+    },
+    {
+      "rank": 119,
+      "ticker": "WAWI.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": 0.1194,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 129
+    },
+    {
+      "rank": 120,
+      "ticker": "ACR.OL",
+      "name": null,
+      "sector": "Financial Services",
+      "pred_return_pct": 0.118,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 139
+    },
+    {
+      "rank": 121,
+      "ticker": "BWO.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.0718,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 118
+    },
+    {
+      "rank": 122,
+      "ticker": "BWE.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": 0.0671,
+      "signal": "HOLD",
+      "is_pick": false,
+      "prev_rank": 25
+    },
+    {
+      "rank": 123,
+      "ticker": "BORR.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": -0.0033,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 102
+    },
+    {
+      "rank": 124,
+      "ticker": "TRMED.OL",
+      "name": null,
+      "sector": "Healthcare",
+      "pred_return_pct": -0.0428,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 113
+    },
+    {
+      "rank": 125,
+      "ticker": "AZT.OL",
+      "name": null,
+      "sector": "Healthcare",
+      "pred_return_pct": -0.0918,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 49
+    },
+    {
+      "rank": 126,
+      "ticker": "AGLX.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": -0.1818,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 37
+    },
+    {
+      "rank": 127,
+      "ticker": "ODF.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": -0.1868,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 122
+    },
+    {
+      "rank": 128,
+      "ticker": "PNOR.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": -0.1891,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 100
+    },
+    {
+      "rank": 129,
+      "ticker": "HPUR.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": -0.1945,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 20
+    },
+    {
+      "rank": 130,
+      "ticker": "NAPA.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": -0.2864,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 126
+    },
+    {
+      "rank": 131,
+      "ticker": "PRS.OL",
+      "name": null,
+      "sector": "Energy",
+      "pred_return_pct": -0.2904,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 67
+    },
+    {
+      "rank": 132,
+      "ticker": "ELO.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": -0.3434,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 110
+    },
+    {
+      "rank": 133,
+      "ticker": "AUTO.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": -0.5271,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 133
+    },
+    {
+      "rank": 134,
+      "ticker": "NEL.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": -0.5702,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 101
+    },
+    {
+      "rank": 135,
+      "ticker": "APR.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": -0.5922,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 35
+    },
+    {
+      "rank": 136,
+      "ticker": "SALME.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": -1.0135,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 127
+    },
+    {
+      "rank": 137,
+      "ticker": "GIGA.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": -1.02,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 135
+    },
+    {
+      "rank": 138,
+      "ticker": "GSF.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": -1.9274,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 138
+    },
+    {
+      "rank": 139,
+      "ticker": "TEKNA.OL",
+      "name": null,
+      "sector": "Basic Materials",
+      "pred_return_pct": -2.0015,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 140
+    },
+    {
+      "rank": 140,
+      "ticker": "BOUV.OL",
+      "name": null,
+      "sector": "Technology",
+      "pred_return_pct": -2.1369,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 136
+    },
+    {
+      "rank": 141,
+      "ticker": "HEX.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": -2.4487,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 137
+    },
+    {
+      "rank": 142,
+      "ticker": "KLDVK.OL",
+      "name": null,
+      "sector": "Consumer Defensive",
+      "pred_return_pct": -2.7981,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 134
+    },
+    {
+      "rank": 143,
+      "ticker": "XPLRA.OL",
+      "name": null,
+      "sector": "Consumer Cyclical",
+      "pred_return_pct": -2.8137,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 141
+    },
+    {
+      "rank": 144,
+      "ticker": "BRUT.OL",
+      "name": null,
+      "sector": "Industrials",
+      "pred_return_pct": -3.2248,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 144
+    },
+    {
+      "rank": 145,
+      "ticker": "NYKD.OL",
+      "name": null,
+      "sector": "Healthcare",
+      "pred_return_pct": -5.3007,
+      "signal": "AVOID",
+      "is_pick": false,
+      "prev_rank": 145
+    }
+  ]
+}

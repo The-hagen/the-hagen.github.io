@@ -1,0 +1,145 @@
+rank,ticker,name,sector,pred_return_pct,signal,is_pick,prev_rank
+1,SEA1.OL,,Energy,2.8752,BUY,True,131.0
+2,SMOP.OL,,Technology,2.6583,BUY,True,24.0
+3,HUNT.OL,,Energy,2.6226,BUY,True,
+4,SNTIA.OL,,Industrials,2.484,BUY,True,14.0
+5,ZAP.OL,,Consumer Cyclical,2.4102,BUY,True,79.0
+6,VAR.OL,,Energy,2.3666,BUY,True,117.0
+7,ODL.OL,,Energy,2.3031,BUY,True,53.0
+8,AKER.OL,,Industrials,2.2318,BUY,True,59.0
+9,BWE.OL,,Energy,2.226,BUY,True,25.0
+10,BWLPG.OL,,Industrials,2.1888,BUY,True,52.0
+11,CMBTO.OL,,Energy,2.112,HOLD,False,5.0
+12,SATS.OL,,Consumer Cyclical,2.1113,HOLD,False,96.0
+13,OET.OL,,Industrials,2.0269,HOLD,False,7.0
+14,TRMED.OL,,Healthcare,1.9537,HOLD,False,113.0
+15,EQNR.OL,,Energy,1.9344,HOLD,False,87.0
+16,PEXIP.OL,,Technology,1.8944,HOLD,False,97.0
+17,PLT.OL,,Technology,1.8747,HOLD,False,123.0
+18,OKEA.OL,,Energy,1.7366,HOLD,False,80.0
+19,AKRBP.OL,,Energy,1.7339,HOLD,False,77.0
+20,ENDUR.OL,,Industrials,1.7233,HOLD,False,78.0
+21,SAGA.OL,,Financial Services,1.7152,HOLD,False,1.0
+22,DOFG.OL,,Industrials,1.6883,HOLD,False,108.0
+23,NORAM.OL,,Energy,1.6674,HOLD,False,40.0
+24,ODF.OL,,Industrials,1.6522,HOLD,False,122.0
+25,ELMRA.OL,,Utilities,1.6321,HOLD,False,81.0
+26,HSHP.OL,,Industrials,1.6237,HOLD,False,54.0
+27,AFG.OL,,Industrials,1.5918,HOLD,False,42.0
+28,SPOL.OL,,Financial Services,1.5643,HOLD,False,38.0
+29,FRO.OL,,Energy,1.5643,HOLD,False,17.0
+30,WAWI.OL,,Industrials,1.5548,HOLD,False,129.0
+31,SB1NO.OL,,Financial Services,1.5393,HOLD,False,23.0
+32,HAUTO.OL,,Industrials,1.5293,HOLD,False,130.0
+33,ELK.OL,,Basic Materials,1.4776,HOLD,False,66.0
+34,BWO.OL,,Energy,1.4551,HOLD,False,118.0
+35,INSTA.OL,,Financial Services,1.4064,HOLD,False,8.0
+36,BONHR.OL,,Industrials,1.4062,HOLD,False,18.0
+37,PEN.OL,,Energy,1.3724,HOLD,False,72.0
+38,OTL.OL,,Energy,1.3716,HOLD,False,76.0
+39,VTURA.OL,,Energy,1.3429,HOLD,False,32.0
+40,AFK.OL,,Industrials,1.3413,HOLD,False,65.0
+41,NONG.OL,,Financial Services,1.3405,HOLD,False,88.0
+42,YAR.OL,,Basic Materials,1.3243,HOLD,False,120.0
+43,DNB.OL,,Financial Services,1.3014,HOLD,False,61.0
+44,BNOR.OL,,Energy,1.2893,HOLD,False,95.0
+45,AKAST.OL,,Energy,1.2706,HOLD,False,112.0
+46,SBNOR.OL,,Financial Services,1.2477,HOLD,False,9.0
+47,WWI.OL,,Industrials,1.237,HOLD,False,107.0
+48,AKVA.OL,,Industrials,1.2319,HOLD,False,91.0
+49,MORLD.OL,,Energy,1.2012,HOLD,False,132.0
+50,OTEC.OL,,Communication Services,1.1876,HOLD,False,15.0
+51,SPOG.OL,,Financial Services,1.1799,HOLD,False,43.0
+52,VEI.OL,,Industrials,1.1596,HOLD,False,21.0
+53,SNI.OL,,Industrials,1.1502,HOLD,False,58.0
+54,B2I.OL,,Financial Services,1.1335,HOLD,False,19.0
+55,PNOR.OL,,Energy,1.1311,HOLD,False,100.0
+56,KOA.OL,,Consumer Cyclical,1.119,HOLD,False,36.0
+57,SKUE.OL,,Financial Services,1.1161,HOLD,False,4.0
+58,DNO.OL,,Energy,1.1148,HOLD,False,99.0
+59,ODFB.OL,,Industrials,1.0797,HOLD,False,124.0
+60,MPCC.OL,,Industrials,1.0727,HOLD,False,71.0
+61,NAPA.OL,,Technology,1.0724,HOLD,False,126.0
+62,ROGS.OL,,Financial Services,1.0497,HOLD,False,6.0
+63,BRUT.OL,,Industrials,1.0446,HOLD,False,144.0
+64,MORG.OL,,Financial Services,1.0328,HOLD,False,89.0
+65,DVD.OL,,Energy,1.0282,HOLD,False,16.0
+66,LSG.OL,,Consumer Defensive,0.9958,HOLD,False,30.0
+67,HAFNI.OL,,Industrials,0.9554,HOLD,False,69.0
+68,STB.OL,,Financial Services,0.9421,HOLD,False,29.0
+69,MEDI.OL,,Healthcare,0.9387,HOLD,False,84.0
+70,MOWI.OL,,Consumer Defensive,0.9335,HOLD,False,90.0
+71,NSKOG.OL,,Basic Materials,0.918,HOLD,False,125.0
+72,KCC.OL,,Industrials,0.9003,HOLD,False,56.0
+73,ATEA.OL,,Technology,0.8958,HOLD,False,48.0
+74,SALM.OL,,Consumer Defensive,0.8795,HOLD,False,86.0
+75,PLSV.OL,,Energy,0.8448,HOLD,False,12.0
+76,AUSS.OL,,Consumer Defensive,0.8322,HOLD,False,64.0
+77,NYKD.OL,,Healthcare,0.8216,HOLD,False,145.0
+78,NOD.OL,,Technology,0.8198,HOLD,False,74.0
+79,MING.OL,,Financial Services,0.812,HOLD,False,75.0
+80,AUTO.OL,,Technology,0.8108,HOLD,False,133.0
+81,BRG.OL,,Basic Materials,0.8011,HOLD,False,28.0
+82,AKSO.OL,,Energy,0.771,HOLD,False,98.0
+83,ENTRA.OL,,Real Estate,0.7697,HOLD,False,60.0
+84,NOL.OL,,Energy,0.764,HOLD,False,
+85,TEL.OL,,Communication Services,0.7631,HOLD,False,31.0
+86,SBO.OL,,Real Estate,0.7497,HOLD,False,62.0
+87,ARCH.OL,,Energy,0.7461,HOLD,False,63.0
+88,PRS.OL,,Energy,0.7444,HOLD,False,67.0
+89,GJF.OL,,Financial Services,0.7106,HOLD,False,33.0
+90,SOFF.OL,,Industrials,0.6911,HOLD,False,13.0
+91,EPR.OL,,Consumer Defensive,0.6691,HOLD,False,55.0
+92,KOG.OL,,Industrials,0.6617,HOLD,False,128.0
+93,VEND.OL,,Communication Services,0.6617,HOLD,False,92.0
+94,CRNA.OL,,Healthcare,0.6594,HOLD,False,
+95,ABG.OL,,Financial Services,0.6484,HOLD,False,2.0
+96,NHY.OL,,Basic Materials,0.5699,HOLD,False,46.0
+97,EIOF.OL,,Energy,0.5374,HOLD,False,93.0
+98,CAMBI.OL,,Industrials,0.5308,HOLD,False,45.0
+99,WWIB.OL,,Industrials,0.5161,HOLD,False,39.0
+100,KID.OL,,Consumer Cyclical,0.461,HOLD,False,27.0
+101,NKR.OL,,Industrials,0.4324,HOLD,False,85.0
+102,SUBC.OL,,Energy,0.3625,HOLD,False,73.0
+103,NORBT.OL,,Technology,0.3557,HOLD,False,11.0
+104,SOMA.OL,,Industrials,0.3019,HOLD,False,50.0
+105,ORK.OL,,Consumer Defensive,0.2849,HOLD,False,51.0
+106,NORCO.OL,,Industrials,0.2739,HOLD,False,83.0
+107,ELO.OL,,Consumer Cyclical,0.2683,HOLD,False,110.0
+108,MULTI.OL,,Industrials,0.262,HOLD,False,22.0
+109,NRC.OL,,Industrials,0.2569,HOLD,False,115.0
+110,ENH.OL,,Energy,0.2501,HOLD,False,47.0
+111,PHO.OL,,Healthcare,0.25,HOLD,False,94.0
+112,NAS.OL,,Industrials,0.2474,HOLD,False,3.0
+113,ANDF.OL,,Consumer Defensive,0.1423,HOLD,False,109.0
+114,PROT.OL,,Financial Services,0.079,HOLD,False,41.0
+115,AKBM.OL,,Consumer Defensive,0.055,HOLD,False,103.0
+116,TGS.OL,,Energy,0.0415,HOLD,False,68.0
+117,TEKNA.OL,,Basic Materials,-0.0017,AVOID,False,140.0
+118,KIT.OL,,Technology,-0.0565,AVOID,False,34.0
+119,BOUV.OL,,Technology,-0.0921,AVOID,False,136.0
+120,CLOUD.OL,,Utilities,-0.1722,AVOID,False,70.0
+121,BAKKA.OL,,Consumer Defensive,-0.1733,AVOID,False,114.0
+122,SWON.OL,,Technology,-0.2636,AVOID,False,82.0
+123,SALME.OL,,Consumer Defensive,-0.2819,AVOID,False,127.0
+124,ACR.OL,,Financial Services,-0.316,AVOID,False,139.0
+125,BEWI.OL,,Consumer Cyclical,-0.3277,AVOID,False,116.0
+126,SCATC.OL,,Utilities,-0.3427,AVOID,False,106.0
+127,HEX.OL,,Consumer Cyclical,-0.3645,AVOID,False,137.0
+128,NTI.OL,,Industrials,-0.5111,AVOID,False,121.0
+129,PUBLI.OL,,Real Estate,-0.5422,AVOID,False,
+130,CADLR.OL,,Industrials,-0.6109,AVOID,False,26.0
+131,AZT.OL,,Healthcare,-0.6346,AVOID,False,49.0
+132,PARB.OL,,Financial Services,-0.653,AVOID,False,57.0
+133,LINK.OL,,Communication Services,-0.7027,AVOID,False,105.0
+134,XPLRA.OL,,Consumer Cyclical,-0.7281,AVOID,False,141.0
+135,AGLX.OL,,Industrials,-0.7652,AVOID,False,37.0
+136,TOM.OL,,Industrials,-0.7916,AVOID,False,111.0
+137,MGN.OL,,Utilities,-0.8246,AVOID,False,10.0
+138,REACH.OL,,Energy,-0.9158,AVOID,False,142.0
+139,KOMPL.OL,,Consumer Cyclical,-1.0132,AVOID,False,104.0
+140,GSF.OL,,Consumer Defensive,-1.1474,AVOID,False,138.0
+141,NEL.OL,,Industrials,-1.3821,AVOID,False,101.0
+142,GIGA.OL,,Consumer Defensive,-1.6601,AVOID,False,135.0
+143,ENVIP.OL,,Industrials,-2.1044,AVOID,False,143.0
+144,HPUR.OL,,Industrials,-4.3074,AVOID,False,20.0

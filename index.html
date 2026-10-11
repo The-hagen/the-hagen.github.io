@@ -1,425 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mats Hagen</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Mats Hagen, credit risk analyst in Oslo. Also runs a model that ranks every stock on Oslo Børs once a month and publishes the ranking here." />
+  <meta name="color-scheme" content="light dark" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <script src="assets/site.js" defer></script>
+  <script src="assets/stocks.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <span class="nav-logo">MH</span>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="home" href="#top">Mats Hagen</a>
+      <nav class="site-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#stock-model">Stock model</a></li>
+          <li><a href="#work">Work</a></li>
+          <li class="optional"><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-greeting">Hello, I'm</p>
-      <h1 class="hero-name">Mats Hagen</h1>
-      <p class="hero-subtitle">
-        <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
-      </p>
-      <div class="hero-buttons">
-        <a href="#experience" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-avatar">
-          <img src="photo.jpg" alt="Mats Hagen" class="avatar-img" />
+  <main id="main">
+    <!-- Hero: the live forecast is the first visual. -->
+    <section class="hero" id="top" aria-labelledby="name">
+      <div class="wrap">
+        <h1 id="name">Mats Hagen</h1>
+        <p class="lede">Credit risk analyst in Oslo. On the side I run a model that ranks every stock on Oslo Børs once a month, and publish the ranking here.</p>
+        <div class="actions">
+          <a class="button" href="#this-month"><span>See <span data-fill="month">this month</span>'s ranking</span></a>
+          <a class="button secondary" href="mailto:Matshaagen@hotmail.com">Email me</a>
         </div>
-        <div class="about-text">
-          <h3>Nice to meet you!</h3>
-          <p>
-            I'm <strong>Mats Hagen</strong> — a quantitatively-driven finance professional based in Oslo, Norway,
-            with a Master's degree in Financial Economics from NTNU and hands-on experience in credit risk, AML compliance, and treasury operations.
-          </p>
-          <p>
-            I combine deep knowledge of financial modelling, econometrics, and machine learning with practical exposure to
-            international banking environments. I'm passionate about leveraging data and technology to solve real financial problems.
-          </p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-num" data-target="4">0</span><span class="stat-num">+</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-target="3">0</span><span class="stat-num"></span>
-              <span class="stat-label">Companies</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-target="2">0</span><span class="stat-num"></span>
-              <span class="stat-label">Degrees</span>
-            </div>
+
+        <div class="strip">
+          <div class="strip-head">
+            <p class="strip-title">Forecast one-month return, <span data-fill="month">latest month</span></p>
+            <p class="muted">Each dot is one stock. <span data-fill="count">All</span> stocks, published <span data-fill="published">monthly</span>.</p>
           </div>
+          <figure class="strip-figure" id="forecast-strip">
+            <figcaption class="visually-hidden">Distribution of this month's forecasts. The tables in the stock model section list the same numbers.</figcaption>
+          </figure>
+          <p class="status" data-stock-status>Loading the latest ranking&hellip;</p>
+          <ul class="strip-legend">
+            <li><span class="swatch down" aria-hidden="true"></span>Bottom 10</li>
+            <li><span class="swatch mid" aria-hidden="true"></span>Everything in between</li>
+            <li><span class="swatch up" aria-hidden="true"></span>Top 10, this month's picks</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-subtitle">My professional journey</p>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>Credit Risk Analyst</h3>
-                <span class="timeline-company">Entercard Group AB</span>
-              </div>
-              <span class="timeline-duration">2 yrs</span>
-            </div>
-            <ul>
-              <li>Deliver data-driven insights to optimise underwriting strategies for credit card portfolios across the full credit lifecycle.</li>
-              <li>Develop and maintain risk models using SAS and SQL, monitoring key risk metrics and informing strategic credit limit and pricing decisions.</li>
-              <li>Collaborate cross-functionally with product and finance teams to align credit strategy with business objectives.</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tag">SAS</span><span class="tag">SQL</span><span class="tag">Credit Risk</span><span class="tag">Modelling</span>
-            </div>
-          </div>
+    <!-- The stock model -->
+    <section class="block" id="stock-model" aria-labelledby="stock-model-title">
+      <div class="wrap">
+        <h2 id="stock-model-title">The Oslo Børs model</h2>
+        <div class="prose">
+          <p class="lede">A research pipeline that, once a month, forecasts next month's return for every stock on Oslo Børs worth more than NOK 1 billion, ranks them, and flags the ten highest as that month's picks.</p>
+          <p>It is a fully automated pipeline that runs on the 1st of each month. When a run finishes, the latest result is published to this website and the page updates itself, so the numbers here always come from the most recent run.</p>
+          <p>The model is a random forest (200 trees) trained on the last eight years of monthly data and about 185 inputs per stock. I compared it against a neural network and LightGBM while building it; the random forest is what the monthly run uses.</p>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>Summer Intern — Treasury</h3>
-                <span class="timeline-company">KLP Banken</span>
-              </div>
-              <span class="timeline-duration">3 mo</span>
-            </div>
-            <ul>
-              <li>Built and automated liquidity management reporting, directly contributing to more efficient treasury decision-making.</li>
-              <li>Supported liquidity analysis covering over €100M in deposits, deepening expertise in fixed income products and liquidity risk management.</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tag">Treasury</span><span class="tag">Fixed Income</span><span class="tag">Liquidity Risk</span>
-            </div>
-          </div>
+        <h3 id="this-month">This month</h3>
+        <dl class="facts">
+          <div><dt>Forecast for</dt><dd data-fill="month">&ndash;</dd></div>
+          <div><dt>Stocks ranked</dt><dd class="num" data-fill="count">&ndash;</dd></div>
+          <div><dt>Market regime</dt><dd data-fill="regime">&ndash;</dd></div>
+          <div><dt>Published</dt><dd data-fill="published">&ndash;</dd></div>
+        </dl>
+        <p class="muted">Sectors in the top 10: <span data-fill="top-sectors">&ndash;</span>. The regime is the sign of the market's six-month momentum.</p>
+        <p class="status" data-stock-status hidden></p>
+
+        <div class="pair">
+          <div id="top-table"></div>
+          <div id="bottom-table"></div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>AML Advisor — Corporate Market</h3>
-                <span class="timeline-company">SpareBank 1 SMN</span>
-              </div>
-              <span class="timeline-duration">11 mo</span>
-            </div>
-            <ul>
-              <li>Conducted KYC due diligence and risk assessments on international corporate clients across a broad range of industries and high-risk jurisdictions.</li>
-              <li>Identified and escalated complex AML risk indicators, strengthening internal compliance processes.</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tag">AML</span><span class="tag">KYC</span><span class="tag">Compliance</span>
-            </div>
+        <details class="all-stocks">
+          <summary class="button secondary">
+            <span class="when-closed">Show all <span data-fill="count">ranked</span> stocks</span>
+            <span class="when-open">Hide the full list</span>
+          </summary>
+          <div class="controls">
+            <label class="field">Find a ticker
+              <input id="stock-search" type="search" placeholder="e.g. EQNR" autocomplete="off" />
+            </label>
+            <label class="field">Sector
+              <select id="stock-sector"><option value="">All sectors</option></select>
+            </label>
           </div>
+          <p class="result-count" id="stock-count" aria-live="polite"></p>
+          <div id="all-table"></div>
+        </details>
+
+        <div id="history">
+          <h3>Earlier months</h3>
+          <div class="prose">
+            <p>Every run is kept. Pick a month to see what the model ranked at the top and bottom then, and which stocks came into the top 10, stayed in it, or dropped out compared with the month before.</p>
+          </div>
+          <div class="month-picker" id="month-picker" role="group" aria-label="Choose a month"></div>
+          <div class="changes" id="history-changes" aria-live="polite"></div>
+          <div id="history-tables"></div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>Marketer / COO / CFO</h3>
-                <span class="timeline-company">Daily Fantasy Scout (Startup)</span>
-              </div>
-              <span class="timeline-duration">1 yr 1 mo</span>
-            </div>
-            <ul>
-              <li>Owned financial planning, budgeting, and resource allocation for an early-stage startup, securing operational funding for product development.</li>
-              <li>Streamlined financial reporting processes, achieving a 10% reduction in operational costs.</li>
-            </ul>
-            <div class="timeline-tags">
-              <span class="tag">Startup</span><span class="tag">Financial Planning</span><span class="tag">Operations</span>
-            </div>
-          </div>
-        </div>
+        <h3>How a monthly run works</h3>
+        <ol class="steps">
+          <li><div><strong>Collect the data</strong>Stock prices for every company in the universe, macroeconomic series (oil and gas prices, interest rates, currencies, the VIX volatility index, and salmon and timber prices) and the latest short positions in each stock. Every download is counted, so a run that is missing part of the market can't pass as a complete one.</div></li>
+          <li><div><strong>Check that the data is complete</strong>Prices have to reach the last trading day of the previous month. Anything still behind gets one more attempt. If more than 10% of stocks, or the Oslo or US benchmark index, are still missing after that, the run stops before the model is trained.</div></li>
+          <li><div><strong>Build the inputs</strong>About 185 measures per stock per month: momentum and reversal, volatility, liquidity, size and value, short interest, earnings timing, each stock's sensitivity to oil, interest rates and currencies, and geopolitical risk.</div></li>
+          <li><div><strong>Train the model</strong>A random forest is trained on a rolling eight-year window, using only data that was available at each point in time. It learns to predict next month's return including dividends.</div></li>
+          <li><div><strong>Forecast and rank</strong>Every stock gets a forecast, including stocks with gaps in their history, which are filled rather than dropped. The ten highest forecasts are the month's picks, and the ten lowest make up the bottom 10.</div></li>
+          <li><div><strong>Check and publish</strong>The ranking is published on this page. A separate private report checks the data and the model for anything unusual, and scores how last month's picks did once that month has closed.</div></li>
+        </ol>
 
+        <h3>What is shared, and what stays private</h3>
+        <div class="prose">
+          <p>This page shows the ranking itself: each stock's rank, sector and forecast return, which stocks are this month's picks, and the same for every earlier month.</p>
+          <p>How the model gets there stays private: the inputs, how much weight each one carries, and the diagnostics from each run. Only the fields above are allowed out, and every run checks that before anything is published.</p>
+          <p>Nothing fails quietly. If a run hits a problem, the ranking is still published, and the problem is flagged and logged so it can be fixed before the next run.</p>
+        </div>
+        <p class="note">This is research code, not investment advice. The forecasts are out-of-sample, but one exchange over about a decade is a research baseline, and a ranking that looks confident can still be wrong for months at a time.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="section">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <p class="section-subtitle">Academic background</p>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot timeline-dot-edu"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>MSc Financial Economics</h3>
-                <span class="timeline-company">NTNU — Norwegian University of Science and Technology</span>
-              </div>
-              <span class="timeline-duration">1 yr 10 mo</span>
-            </div>
-            <p>Specialised in econometrics, financial markets, and statistical analysis.</p>
-            <p><strong>Thesis:</strong> Post-Earnings Announcement Drift in the Norwegian market — applied machine learning to financial time series data to identify persistent return anomalies.</p>
-            <div class="timeline-tags">
-              <span class="tag">Econometrics</span><span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">R</span>
-            </div>
+    <!-- About + work -->
+    <section class="block" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="about">
+          <div class="prose">
+            <h2 id="work-title">Work</h2>
+            <p>I have an MSc in Financial Economics from NTNU and about four years of experience across credit risk, anti-money-laundering compliance and treasury. Most of what I do is turn messy financial data into a decision someone can defend: a credit limit, a risk flag, a liquidity report.</p>
           </div>
+          <img src="photo.jpg" alt="Portrait of Mats Hagen" width="240" height="240" loading="lazy" />
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot timeline-dot-edu"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>Exchange Semester — Wealth Management</h3>
-                <span class="timeline-company">University of Geneva</span>
-              </div>
-              <span class="timeline-duration">7 mo</span>
-            </div>
-            <p>Focused on Financial Econometrics, Fixed Income, and Statistical Analysis of Time Series, building advanced quantitative skills applicable to global market analysis.</p>
-            <div class="timeline-tags">
-              <span class="tag">Wealth Management</span><span class="tag">Fixed Income</span><span class="tag">Time Series</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot timeline-dot-edu"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3>BSc Finance</h3>
-                <span class="timeline-company">BI Norwegian Business School</span>
-              </div>
-              <span class="timeline-duration">2 yrs 11 mo</span>
-            </div>
-            <p>Foundation in financial principles, capital structures, risk management, and corporate financial decision-making.</p>
-            <div class="timeline-tags">
-              <span class="tag">Finance</span><span class="tag">Risk Management</span><span class="tag">Corporate Finance</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <p class="section-subtitle">Tools and expertise I bring to the table</p>
-      <div class="skills-grid">
-        <div class="skill-card" data-delay="0">
-          <div class="skill-icon">📊</div>
-          <h4>Data & Analytics</h4>
-          <p>Python, R, SQL, SAS</p>
-        </div>
-        <div class="skill-card" data-delay="100">
-          <div class="skill-icon">💹</div>
-          <h4>Credit Risk</h4>
-          <p>Risk Modelling, Underwriting, Lifecycle Analysis</p>
-        </div>
-        <div class="skill-card" data-delay="200">
-          <div class="skill-icon">🧠</div>
-          <h4>Machine Learning</h4>
-          <p>Neural Networks, Time Series, Statistical Modelling</p>
-        </div>
-        <div class="skill-card" data-delay="300">
-          <div class="skill-icon">🏦</div>
-          <h4>Finance</h4>
-          <p>Fixed Income, Liquidity Analysis, Econometrics</p>
-        </div>
-        <div class="skill-card" data-delay="400">
-          <div class="skill-icon">🔍</div>
-          <h4>Compliance</h4>
-          <p>KYC, AML, Due Diligence</p>
-        </div>
-        <div class="skill-card" data-delay="500">
-          <div class="skill-icon">📈</div>
-          <h4>Excel & Reporting</h4>
-          <p>VBA, Power Query, Financial Modelling</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">Key quantitative work</p>
-      <div class="projects-grid">
-
-        <article class="project-card">
-          <a href="neural-network.html" class="project-img-link">
-            <div class="project-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-              <span>🧠</span>
-            </div>
-          </a>
-          <div class="project-body">
-            <h3>Stock Return Prediction Models</h3>
-            <p>Developed and compared a Neural Network, LightGBM, and Random Forest to predict one-month forward returns for Oslo-listed equities, with live performance tracking vs the OSEBX benchmark.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Neural Networks</span>
-              <span class="tag">LightGBM</span>
-              <span class="tag">Oslo Equities</span>
-            </div>
-            <div class="project-links">
-              <a href="neural-network.html" class="btn btn-sm btn-primary">View Details</a>
-              <a href="https://github.com/the-hagen" class="btn btn-sm btn-ghost" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-            <span>📉</span>
-          </div>
-          <div class="project-body">
-            <h3>Post-Earnings Announcement Drift</h3>
-            <p>Master's thesis applying machine learning to Norwegian financial time series data to identify persistent return anomalies following earnings announcements.</p>
-            <div class="project-tags">
-              <span class="tag">R</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Financial Economics</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/the-hagen" class="btn btn-sm btn-ghost" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
-            <span>💧</span>
-          </div>
-          <div class="project-body">
-            <h3>Liquidity Management Automation</h3>
-            <p>Built and automated liquidity management reporting at KLP Banken, supporting analysis of over €100M in deposits and improving treasury efficiency.</p>
-            <div class="project-tags">
-              <span class="tag">Excel</span>
-              <span class="tag">VBA</span>
-              <span class="tag">Treasury</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/the-hagen" class="btn btn-sm btn-ghost" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <span class="contact-icon">📧</span>
+        <ul class="rows">
+          <li>
+            <div class="when">2 years</div>
             <div>
-              <strong>Email</strong>
-              <p><a href="mailto:Matshaagen@hotmail.com">Matshaagen@hotmail.com</a></p>
+              <h3>Credit Risk Analyst</h3>
+              <p class="org">Entercard Group AB</p>
+              <ul>
+                <li>Analyse credit card portfolios across the full credit lifecycle to improve underwriting strategy.</li>
+                <li>Build and maintain risk models in SAS and SQL, and track the metrics behind credit limit and pricing decisions.</li>
+                <li>Work with product and finance teams so credit strategy matches business targets.</li>
+              </ul>
             </div>
-          </div>
+          </li>
+          <li>
+            <div class="when">3 months</div>
+            <div>
+              <h3>Summer intern, Treasury</h3>
+              <p class="org">KLP Banken</p>
+              <ul>
+                <li>Built and automated liquidity management reporting used in treasury decisions.</li>
+                <li>Supported liquidity analysis covering more than &euro;100M in deposits.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">11 months</div>
+            <div>
+              <h3>AML Advisor, Corporate Market</h3>
+              <p class="org">SpareBank 1 SMN</p>
+              <ul>
+                <li>Ran KYC due diligence and risk assessments on international corporate clients, including clients in high-risk jurisdictions.</li>
+                <li>Identified and escalated complex money-laundering risk indicators.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">1 year 1 month</div>
+            <div>
+              <h3>Marketer, COO and CFO</h3>
+              <p class="org">Daily Fantasy Scout (startup)</p>
+              <ul>
+                <li>Owned financial planning, budgeting and resource allocation, and secured operating funding for product development.</li>
+                <li>Simplified financial reporting and cut operating costs by 10%.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-          <div class="contact-item">
-            <span class="contact-icon">🐙</span>
+    <section class="block" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <h2 id="education-title">Education</h2>
+        <ul class="rows">
+          <li>
+            <div class="when">1 year 10 months</div>
             <div>
-              <strong>GitHub</strong>
-              <p><a href="https://github.com/the-hagen" target="_blank">github.com/the-hagen</a></p>
+              <h3>MSc Financial Economics</h3>
+              <p class="org">NTNU, Norwegian University of Science and Technology</p>
+              <p>Econometrics, financial markets and statistical analysis. Thesis on post-earnings-announcement drift in the Norwegian market: using machine learning on financial time series to test whether prices keep moving after earnings news.</p>
             </div>
+          </li>
+          <li>
+            <div class="when">7 months</div>
+            <div>
+              <h3>Exchange semester, Wealth Management</h3>
+              <p class="org">University of Geneva</p>
+              <p>Financial econometrics, fixed income and time-series analysis.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">2 years 11 months</div>
+            <div>
+              <h3>BSc Finance</h3>
+              <p class="org">BI Norwegian Business School</p>
+              <p>Corporate finance, capital structure and risk management.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h2 class="spaced">Tools I use</h2>
+        <div class="skill-lists">
+          <div>
+            <h3>Data</h3>
+            <ul><li>Python, R, SQL, SAS</li><li>PostgreSQL</li><li>GitHub Actions</li></ul>
           </div>
-          <div class="contact-item">
-            <span class="contact-icon">💼</span>
-            <div>
-              <strong>LinkedIn</strong>
-              <p><a href="https://linkedin.com/in/Mats-Hagen" target="_blank">linkedin.com/in/Mats-Hagen</a></p>
-            </div>
+          <div>
+            <h3>Modelling</h3>
+            <ul><li>Credit risk and underwriting models</li><li>Random forests, gradient boosting, neural networks</li><li>Econometrics and time series</li></ul>
+          </div>
+          <div>
+            <h3>Finance</h3>
+            <ul><li>Fixed income and liquidity</li><li>KYC and AML</li><li>Excel, VBA and Power Query</li></ul>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required />
-            <label for="name">Your Name</label>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Your Email" required />
-            <label for="email">Your Email</label>
-          </div>
-          <div class="form-group">
-            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-            <label for="message">Your Message</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-          <p class="form-note" id="formNote"></p>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Mats Hagen</p>
-      <div class="footer-links">
-        <a href="https://github.com/the-hagen" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/Mats-Hagen" target="_blank">LinkedIn</a>
+    <section class="block" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Contact</h2>
+        <div class="prose">
+          <p class="lede">Email is the quickest way to reach me. I'm happy to talk about credit risk roles, the stock model, or anything on this page.</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="mailto:Matshaagen@hotmail.com">Email Matshaagen@hotmail.com</a>
+          <a class="button secondary" href="https://linkedin.com/in/Mats-Hagen" rel="noopener">Open LinkedIn</a>
+        </div>
+        <ul class="contact-links">
+          <li><span>GitHub</span> <a href="https://github.com/the-hagen" rel="noopener">github.com/the-hagen</a></li>
+          <li><span>LinkedIn</span> <a href="https://linkedin.com/in/Mats-Hagen" rel="noopener">linkedin.com/in/Mats-Hagen</a></li>
+        </ul>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Mats Hagen, Oslo</p>
+      <p>Stock data updates on the 1st of each month.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

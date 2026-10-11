@@ -1,0 +1,9 @@
+{
+  "name": "the-hagen-site-checks",
+  "private": true,
+  "description": "Pinned tools for the site's CI evals. The site itself has no build step.",
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "html-validate": "9.4.1"
+  }
+}
