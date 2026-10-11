@@ -113,18 +113,19 @@
 
         <h3>How a monthly run works</h3>
         <ol class="steps">
-          <li><div><strong>Fetch</strong>Prices from Yahoo, macro series from FRED and Statistics Norway (oil, gas, rates, currencies, VIX, salmon and timber prices), and short positions from Finanstilsynet. Every fetch is counted, so a run that only got 40 of 200 tickers cannot pass as a healthy one.</div></li>
-          <li><div><strong>Check the data is ready</strong>Prices have to reach the last trading day of the previous month. Anything behind gets one targeted re-fetch. If more than 10% of stocks, or the OSEBX or S&amp;P 500 index, are still behind, the run stops before it fits anything.</div></li>
-          <li><div><strong>Build features</strong>About 185 per stock per month: momentum and reversal, volatility, liquidity, size and value characteristics from the Jensen-Kelly-Pedersen factor set, short interest, earnings timing, each stock's exposure to oil, rates and currencies, and a geopolitical-risk index. They are stored before fitting, so a failed fit doesn't lose them.</div></li>
-          <li><div><strong>Fit</strong>The random forest is trained on a rolling eight-year window, using only data that was available at the time. The target is next month's return including dividends.</div></li>
-          <li><div><strong>Forecast and rank</strong>Every stock in the universe gets a forecast, including stocks with gaps in their history (they are filled from the training window's medians rather than dropped). The ten highest are the picks.</div></li>
-          <li><div><strong>Report and publish</strong>The ranking is pushed to this site. A private diagnostics report checks data freshness, feature drift and anomalies, and scores how last month's picks did once that month has closed. Then the database is backed up.</div></li>
+          <li><div><strong>Collect the data</strong>Stock prices for every company in the universe, macroeconomic series (oil and gas prices, interest rates, currencies, the VIX volatility index, and salmon and timber prices) and the latest short positions in each stock. Every download is counted, so a run that is missing part of the market can't pass as a complete one.</div></li>
+          <li><div><strong>Check that the data is complete</strong>Prices have to reach the last trading day of the previous month. Anything still behind gets one more attempt. If more than 10% of stocks, or the Oslo or US benchmark index, are still missing after that, the run stops before the model is trained.</div></li>
+          <li><div><strong>Build the inputs</strong>About 185 measures per stock per month: momentum and reversal, volatility, liquidity, size and value, short interest, earnings timing, each stock's sensitivity to oil, interest rates and currencies, and geopolitical risk.</div></li>
+          <li><div><strong>Train the model</strong>A random forest is trained on a rolling eight-year window, using only data that was available at each point in time. It learns to predict next month's return including dividends.</div></li>
+          <li><div><strong>Forecast and rank</strong>Every stock gets a forecast, including stocks with gaps in their history, which are filled rather than dropped. The ten highest forecasts are the month's picks, and the ten lowest make up the bottom 10.</div></li>
+          <li><div><strong>Check and publish</strong>The ranking is published on this page. A separate private report checks the data and the model for anything unusual, and scores how last month's picks did once that month has closed.</div></li>
         </ol>
 
-        <h3>What it publishes, and what it doesn't</h3>
+        <h3>What is shared, and what stays private</h3>
         <div class="prose">
-          <p>The public file has eight fields per stock: rank, ticker, name, sector, forecast, signal, whether it is a pick, and last month's rank. Which inputs drive the model is left out on purpose. That rule is enforced in code with a whitelist the publish step checks on every run, because this site's repository is public and its history is permanent.</p>
-          <p>Nothing fails quietly. A run that hits an error still publishes its ranking, but the problem is flagged and logged with what went wrong.</p>
+          <p>This page shows the ranking itself: each stock's rank, sector and forecast return, which stocks are this month's picks, and the same for every earlier month.</p>
+          <p>How the model gets there stays private: the inputs, how much weight each one carries, and the diagnostics from each run. Only the fields above are allowed out, and every run checks that before anything is published.</p>
+          <p>Nothing fails quietly. If a run hits a problem, the ranking is still published, and the problem is flagged and logged so it can be fixed before the next run.</p>
         </div>
         <p class="note">This is research code, not investment advice. The forecasts are out-of-sample, but one exchange over about a decade is a research baseline, and a ranking that looks confident can still be wrong for months at a time.</p>
       </div>
