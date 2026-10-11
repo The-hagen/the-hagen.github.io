@@ -63,7 +63,7 @@
       <div class="wrap">
         <h2 id="about-model-title">What it is</h2>
         <div class="prose">
-          <p>It runs without me. GitHub Actions starts it at 04:00 Oslo time on the 1st of each month, and tries again on the 3rd if the first attempt didn't produce a forecast. When it finishes it commits the ranking to this website, so the numbers on this page are whatever the latest run published, not something I typed in.</p>
+          <p>It is a fully automated pipeline that runs on the 1st of each month. When a run finishes, the latest result is published to this website and the page updates itself, so the numbers here always come from the most recent run.</p>
           <p>The model is a random forest (200 trees) trained on the last eight years of monthly data and about 185 inputs per stock. I compared it against a neural network and LightGBM while building it; the random forest is what the monthly run uses.</p>
         </div>
 
@@ -122,7 +122,7 @@
         <h3>What it publishes, and what it doesn't</h3>
         <div class="prose">
           <p>The public file has eight fields per stock: rank, ticker, name, sector, forecast, signal, whether it is a pick, and last month's rank. Which inputs drive the model is left out on purpose. That rule is enforced in code with a whitelist the publish step checks on every run, because this site's repository is public and its history is permanent.</p>
-          <p>Nothing fails quietly. A run that hits an error still publishes its ranking, but the job turns red and opens a GitHub issue, and the run log says what went wrong.</p>
+          <p>Nothing fails quietly. A run that hits an error still publishes its ranking, but the problem is flagged and logged with what went wrong.</p>
         </div>
         <div class="actions">
           <a class="button" href="index.html#contact">Ask me about the model</a>
